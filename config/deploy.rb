@@ -23,6 +23,7 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 set :rvm_map_bins, %w{gem rake ruby rails bundle}
+set :default_shell, "/bin/bash -l"
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
