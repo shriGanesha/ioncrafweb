@@ -7,6 +7,8 @@ set :user,            'ubuntu'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
+set :branch,    :staging
+set :port, 3000
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
@@ -62,17 +64,17 @@ namespace :deploy do
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
-      before 'deploy:restart', 'puma:start'
+    #  before 'deploy:restart', 'puma:start'
       invoke 'deploy'
     end
   end
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
+  # desc 'Restart application'
+  # task :restart do
+  #   on roles(:app), in: :sequence, wait: 5 do
+  #     invoke 'puma:restart'
+  #   end
+  # end
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
