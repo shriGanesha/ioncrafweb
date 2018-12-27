@@ -2,7 +2,7 @@
 server '13.233.206.7', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:kaustubhtapke/ioncrafweb.git'
-set :application,     'ioncrafweb'
+set :application,     'ioncrafweb_ptoduction'
 set :user,            'ubuntu'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
